@@ -6,6 +6,9 @@ class Inventario
         @peso = 0
         @peso_limite = 2
     end 
+    def conteudo
+        @lista
+    end
     def excluir_item(local_item,  inventario, quantos)
         inventario.lista[local_item][:quantidade] = inventario.lista[local_item][:quantidade] - quantos.to_i 
     end

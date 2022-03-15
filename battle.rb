@@ -78,6 +78,7 @@ class Turnos
           puts "\e[2msua resposta:\e[0m "
           resposta = gets.chomp
  
+          system "clear"
             if resposta == "a"
                batalha.atacar_inimigo(jogador, inimigo)
                 if inimigo.hp > 0 
@@ -99,8 +100,10 @@ class Turnos
                   end
             elsif resposta == "i" 
                     puts "\e[93mQual item gostaria de usar?\e[0m"
-                    bag_empty = inventario
-                    if bag_empty.nil? || bag_empty.empty?
+                    bag_empty = inventario.conteudo
+                    puts bag_empty
+                    unless bag_empty.empty? 
+
                     puts inventario.exibir_bau
 
                     puts "\e[2mPor favor, digite o n do item\e[0m"

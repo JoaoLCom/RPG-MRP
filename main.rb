@@ -18,12 +18,33 @@ puts "\e[41m|___________________________________|\e[0m
 puts "\e[31mVamos começar a criando seu personagem\e[0m"
 puts "\e[34mQual o nome do seu personagem? \e[0m"
 nome_entrou = gets.chomp
-puts "\e[34mQuanto vc tem de ataque? (10-20) \e[0m"
-ataque_entrou = gets.chomp.to_i
-puts "\e[34mQuanto vc tem de defesa? (0-10)  \e[0m"
-defesa_entrou = gets.chomp.to_i
-puts "\e[34mQuanto vc tem de hp? (100-300)  \e[0m"
-hp_entrou = gets.chomp.to_i
+status = 20
+
+puts "Você tem #{status} pontos de status para distruibir, escolha com cuidado!"
+
+ataque_entrou = 0
+while ataque_entrou < 10 || ataque_entrou > 20
+    puts "\e[34mQuanto vc tem de ataque? (10-20) \e[0m"
+    ataque_entrou = gets.chomp.to_i
+end
+
+status = status - ataque_entrou
+
+defesa_entrou = 0
+while defesa_entrou < 2 || defesa_entrou > 10 
+    
+    puts "\e[34mQuanto vc tem de defesa? (2-10)  \e[0m"
+    defesa_entrou = gets.chomp.to_i
+    
+end
+
+status = status - ataque_entrou
+
+hp_entrou = 0 
+while hp_entrou < 100 || hp_entrou > 300
+    puts "\e[34mQuanto vc tem de hp? (100-300)  \e[0m"
+    hp_entrou = gets.chomp.to_i
+end
 puts "\e[34mQual sera sua frase de efeito?   \e[0m"
 frase_entrou = gets.chomp
 heroi_1 = Heroi.new(nome_entrou, ataque_entrou, defesa_entrou, hp_entrou, frase_entrou)
