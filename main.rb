@@ -18,6 +18,7 @@ puts "\e[41m|___________________________________|\e[0m
 puts "\e[31mVamos começar a criando seu personagem\e[0m"
 puts "\e[34mQual o nome do seu personagem? \e[0m"
 nome_entrou = gets.chomp
+
 status = 20
 
 puts "Você tem #{status} pontos de status para distruibir, escolha com cuidado!"
@@ -30,15 +31,28 @@ end
 
 status = status - ataque_entrou
 
+puts "Você ainda tem #{status} pontos de status para distruibir"
+
 defesa_entrou = 0
-while defesa_entrou < 2 || defesa_entrou > 10 
-    
+if defesa_entrou = 0 && status > 0
+
     puts "\e[34mQuanto vc tem de defesa? (2-10)  \e[0m"
-    defesa_entrou = gets.chomp.to_i
+    defesa_verifica = gets.chomp.to_i
+
+    while defesa_verifica < 2 || defesa_verifica > status || defesa_verifica >  10
+    puts "Entrada invalida"
+    puts "\e[34mQuanto vc tem de defesa? (2-10)  \e[0m"
+    defesa_verifica = gets.chomp.to_i
     
+    end
+    defesa_entrou = defesa_verifica
+    status = status - defesa_entrou
+else
+    "Você Ultrapassou o limite de pontos"
+    defesa_entrou = 0
 end
 
-status = status - ataque_entrou
+
 
 hp_entrou = 0 
 while hp_entrou < 100 || hp_entrou > 300
