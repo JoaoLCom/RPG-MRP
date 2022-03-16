@@ -6,6 +6,7 @@ require "./itens.rb"
 pocao_hp = Item.new("Poção de Hp", 20, 0)
 pocao_at = Item.new("Poção de Coragem", 0, 5)
 pocao_mx = Item.new("Poção Lendaria", 100, 200)
+barbaro = Classes.new(4, 4, 2, 40, 70, 'machado')
 
 
 puts " ___________________________________"
@@ -19,49 +20,66 @@ puts "\e[31mVamos começar a criando seu personagem\e[0m"
 puts "\e[34mQual o nome do seu personagem? \e[0m"
 nome_entrou = gets.chomp
 
-status = 20
+status = 30
 
 puts "Você tem #{status} pontos de status para distruibir, escolha com cuidado!"
 
-ataque_entrou = 0
-while ataque_entrou < 10 || ataque_entrou > 20
-    puts "\e[34mQuanto vc tem de ataque? (10-20) \e[0m"
-    ataque_entrou = gets.chomp.to_i
+force_entrou = 0
+while force_entrou <= 0 || force_entrou > 30
+    puts "\e[34mQuanto de força? \e[0m"
+    force_entrou = gets.chomp.to_i
 end
 
-status = status - ataque_entrou
+status = status - force_entrou
 
 puts "Você ainda tem #{status} pontos de status para distruibir"
 
-defesa_entrou = 0
-if defesa_entrou = 0 && status > 0
+res_entrou = 0
+if res_entrou = 0 && status > 0
 
-    puts "\e[34mQuanto vc tem de defesa? (2-10)  \e[0m"
-    defesa_verifica = gets.chomp.to_i
+    puts "\e[34mQuanto de Resistencia?\e[0m"
+    res_verifica = gets.chomp.to_i
 
-    while defesa_verifica < 2 || defesa_verifica > status || defesa_verifica >  10
+    while res_verifica < 0 || res_verifica > status
     puts "Entrada invalida"
-    puts "\e[34mQuanto vc tem de defesa? (2-10)  \e[0m"
-    defesa_verifica = gets.chomp.to_i
+    puts "\e[34mQuanto de Resistencia?\e[0m"
+    res_verifica = gets.chomp.to_i
     
     end
-    defesa_entrou = defesa_verifica
-    status = status - defesa_entrou
+    res_entrou = res_verifica
+    status = status - res_entrou
 else
     "Você Ultrapassou o limite de pontos"
-    defesa_entrou = 0
+    res_entrou = 0
 end
 
+puts "Você ainda tem #{status} pontos de status para distruibir"
+vit_entrou = 0
+if vit_entrou = 0 && status > 0
 
+    puts "\e[34mQuanto de Vitalidade? \e[0m"
+    vit_verifica = gets.chomp.to_i
 
-hp_entrou = 0 
-while hp_entrou < 100 || hp_entrou > 300
-    puts "\e[34mQuanto vc tem de hp? (100-300)  \e[0m"
-    hp_entrou = gets.chomp.to_i
+    while vit_verifica < 0 || vit_verifica > status
+    puts "Entrada invalida"
+    puts "\e[34mQuanto de Vitalidade? \e[0m"
+    vit_verifica = gets.chomp.to_i
+    
+    end
+    vit_entrou = vit_verifica
+    status = status - vit_entrou
+else
+    "Você Ultrapassou o limite de pontos"
+    vit_entrou = 0
 end
+
 puts "\e[34mQual sera sua frase de efeito?   \e[0m"
 frase_entrou = gets.chomp
-heroi_1 = Heroi.new(nome_entrou, ataque_entrou, defesa_entrou, hp_entrou, frase_entrou)
+
+heroi_1 = Heroi.new(nome_entrou, barbaro, force_entrou, res_entrou, vit_entrou, frase_entrou)
+                
+
+
 puts "\e[7mPersonagem #{heroi_1.nome} criado com sucesso\e[0m"
 puts "\e[32m ___________________________________ \e[0m"
 puts "\e[32m|                                   |\e[0m"

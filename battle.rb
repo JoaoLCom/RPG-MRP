@@ -102,22 +102,24 @@ class Turnos
                     puts "\e[93mQual item gostaria de usar?\e[0m"
                     bag_empty = inventario.conteudo
                     puts bag_empty
-                    unless bag_empty.empty? 
+                     unless bag_empty.empty? 
+                        puts inventario.exibir_bau
+                        puts "\e[2mPor favor, digite o n do item\e[0m"
 
-                    puts inventario.exibir_bau
-
-                    puts "\e[2mPor favor, digite o n do item\e[0m"
                         item_usar = gets.chomp.to_i
                         item_usar -= 1
-                    puts inventario.exibir_bau(@item_usar)
-                    puts "\e[2mQuantos ?\e[0m"
+
+                        puts inventario.exibir_bau(@item_usar)
+                        puts "\e[2mQuantos ?\e[0m"
+
                         quantos_itens = gets.chomp.to_i
                         item_total = inventario.lista[item_usar]
                         inventario.exibir_bau
                         batalha.usar_item(jogador, item_total, item_usar, inventario, quantos_itens)
                     else
                         puts "\e[7mSUA MOCHILA ESTA VAZIA\e[0m"
-                    end      
+                    end   
+                    puts "\e[1mVOLTOU PARA BATALHA\e[0m"
             elsif resposta == "f" 
                 puts "Você abandonou a batalha"
                 leave = true
