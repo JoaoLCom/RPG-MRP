@@ -68,3 +68,27 @@ class Inimigo
     end
 end
 
+class NPC
+    attr_accessor :nome, :lugar, :loja
+    def initialize(nome, lugar)
+        @nome = nome
+        @lugar = lugar
+        @loja = []
+    end
+    def add_item_loja(item, quantidade)
+        add_item = {
+            @item = item
+            @quantidade = quantidade
+            @valor = item.valor
+        }
+        loja.push(add_item)
+        puts "item adicionado ao NPC"
+    end 
+    def compra_item(item, quantidade, inventario)
+        puts "qual item ?"
+        loja.each do |itens|
+            index = 1
+            puts "#{index} #{@loja[index][:nome]} #{@loja[index][:valor]}"
+            index += 1
+    end
+end

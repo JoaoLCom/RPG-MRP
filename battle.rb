@@ -101,7 +101,6 @@ class Turnos
             elsif resposta == "i" 
                     puts "\e[93mQual item gostaria de usar?\e[0m"
                     bag_empty = inventario.conteudo
-                    puts bag_empty
                      unless bag_empty.empty? 
                         puts inventario.exibir_bau
                         puts "\e[2mPor favor, digite o n do item\e[0m"

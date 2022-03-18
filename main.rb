@@ -36,7 +36,6 @@ print("\e[2mNumero referente: \e[0m")
 
 classe_verifica = gets.chomp.to_i
 classe_entrou = barbaro
-puts classe_entrou
 
     if classe_verifica == 1
      classe_entrou = barbaro
@@ -126,7 +125,7 @@ puts "\e[32m|_n=\e[0m\e[2mSair do jogo\e[0m\e[32m____________________|\e[0m"
 puts "\e[2msua resposta:\e[0m "
 frase_entrou = gets.chomp
 bag_heroi1 = Inventario.new
-yu_zhong = Inimigo.new("Yu Zhong", 18, 9, 95, "Me tornar o mais forte de todos!")
+yu_zhong = Inimigo.new("Yu Zhong", 18, 9, 295, "Me tornar o mais forte de todos!")
 pocao_hp.drop(5, bag_heroi1, pocao_hp)
 
 yu_zhong.apareceu()

@@ -45,10 +45,11 @@ end
 class Item
     attr_accessor :nome, :bonus_hp, :bonus_at
 
-    def initialize(nome, bonus_hp, bonus_at)
+    def initialize(nome, bonus_hp, bonus_at, valor = 0)
         @nome = nome
         @bonus_hp = bonus_hp
         @bonus_at = bonus_at
+        @valor = valor
     end
     def drop(quantidade, inventario, item)
         @quantidade = quantidade
@@ -64,3 +65,20 @@ class Item
     end
 end
 
+class Equip
+
+    def initialize(nome, pa, pd, tipo, peso)
+        @nome = nome
+        @pa = pa
+        @pd = pd
+        @tipo = tipo
+        @peso = peso
+    end
+    def drop_arma
+
+    end
+
+    def drop_armadura 
+        
+    end
+end
